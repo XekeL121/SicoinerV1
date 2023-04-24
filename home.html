@@ -97,33 +97,35 @@
         </div>        
         <!-- Contenedor principal -->
         <main class="contenedor-principal">
-            
-            <!-- Modal -->
-            <div class="modal" id="myModal">
-                <div class="modal-content">
-                    <h2>Nuevo portfolio</h2>
-                    <form id="newPortfolioForm" class="">
-                        <label for="portfolioName">Nombre del portfolio:</label>
-                        <input type="text" id="portfolioName" name="name_portfolioName" required>
-                        <label for="broker">Bróker:</label>
-                        <input type="text" id="broker" name="broker" required>
-                        <label for="ticker">Activo:</label>
-                        <input type="text" id="ticker" name="ticker" required>
-                        <label for="quantity">Cantidad:</label>
-                        <input type="number" id="quantity" name="name_quantity" step="0.0001" min="0" required>
-                        <label for="price">Precio:</label>
-                        <input type="number" id="price" name="name_price" step="0.0001" min="0" required>
-                        <div class="modalButtons">
-                            <input type="submit" id="accept-modal" value="Aceptar">
-                            <input type="button" id="closeModal" value="Cerrar">
-                        </div>
-                    </form>
+            <section id="section" class="contenedor-portfolio">
+                <!-- Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <h2>Nuevo portfolio</h2>
+                        <form id="newPortfolioForm" class="">
+                            <label for="portfolioName">Nombre del portfolio:</label>
+                            <input type="text" id="portfolioName" name="name_portfolioName" required>
+                            <label for="broker">Bróker:</label>
+                            <input type="text" id="broker" name="broker" required>
+                            <label for="ticker">Activo:</label>
+                            <input type="text" id="ticker" name="ticker" required>
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" name="name_quantity" step="0.0001" min="0" required>
+                            <label for="price">Precio:</label>
+                            <input type="number" id="price" name="name_price" step="0.0001" min="0" required>
+                            <div class="modalButtons">
+                                <input type="submit" id="accept-modal" value="Aceptar">
+                                <input type="button" id="closeModal" value="Cerrar">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <!-- Fin modal -->            
-            <!-- portfolio -->
+                
+                <!-- Fin modal -->            
+                <!-- portfolio -->
 
-            <!-- Fin portfolio -->            
+                <!-- Fin portfolio -->
+            </section>            
             <div id="btn__newport__container" class="btn__newport__container">
                 <div class="btn__newport__Bienvenida">
                     <p>Bienvenid@ a Sicoiner, tu portfolio financiero digital</p>
@@ -139,10 +141,8 @@
                 
         </footer>
         
-        <script type="module" src="js/home.js"></script>
-        <script type="module" src="js/home_calc.js"></script>
-        <script type="module" src="js/homeUser.js"></script>
-        <script src="js/dataStorage.js"></script>  
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script type="module" src="js/home.js"></script>        
 
     </body>
 </html>
