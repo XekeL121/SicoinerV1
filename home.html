@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="portfolio financiero digital y online para organizar y calcular las inversiones en acciones, criptomonedas">
+        <!-- Google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+        <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
+        <!-- Fin Google fonts -->
+        <link rel="preload" href="css/home.css" as="style">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="preload" href="css/main.css" as="style">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="icon" type="image/png" style="height: 100%; width: 100%;" href="img/Sicoiner favicon.png">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <title>Sicoiner V2</title>
+    </head>
+    <body class="">
+        <header class="header">
+            <a class="logo" href="home.html">
+                <img src="img/Isotipo Sicoiner v1.png" alt="logotipo Sicoiner" >
+                <p class="nowrap">portfolio Financiero</p>
+            </a>    
+            <nav class="navegacion-principal op-80">
+                <a href="home.html" class="navegacion__portfolios">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-book mr-05" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                        <line x1="3" y1="6" x2="3" y2="19" />
+                        <line x1="12" y1="6" x2="12" y2="19" />
+                        <line x1="21" y1="6" x2="21" y2="19" />
+                    </svg>
+                    <p>Portfolios</p>
+                </a>
+                <a href="historial.html" class="navegacion__historial">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-notes" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="5" y="3" width="14" height="18" rx="2" />
+                        <line x1="9" y1="7" x2="15" y2="7" />
+                        <line x1="9" y1="11" x2="15" y2="11" />
+                        <line x1="9" y1="15" x2="13" y2="15" />
+                    </svg>
+                    <p>Historial</p>
+                </a> 
+                <a href="index.html" class="navegacion__account">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="9" />
+                        <circle cx="12" cy="10" r="3" />
+                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M18 15l-6 -6l-6 6h12" transform="rotate(180 12 12)" />
+                    </svg>
+                </a>
+            </nav>
+            <!-- fin .navegacion-pricipal -->
+        </header>
+        <!-- Barra de noticias y nav secundaria -->
+        <div class="nav__bar">
+            <div class="noticias o-hidden">
+                <p class="nowrap op-80"><span class="t-azul2">>> China amenaza con prohibir Bitcoin -</span> Tensión en el mercado por el conflicto EEUU con Rusia  -  <span class="t-azul2">Los inversores atentos a la reunión del miércoles de La FED -</span> </p>
+                <div class="noticias__reset"><img class="" src="img/sync_white_24dp.svg" alt=""></div>  <!-- ! Aquí debería ir un símbolo de actualizar -->
+            </div>
+            <div class="nav__secundario op-80">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-05 icon icon-tabler icon-tabler-math-symbols" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="12" y1="3" x2="12" y2="21" />
+                        <line x1="16.5" y1="4.5" x2="19.5" y2="7.5" />
+                        <line x1="19.5" y1="4.5" x2="16.5" y2="7.5" />
+                        <line x1="6" y1="4" x2="6" y2="8" />
+                        <line x1="4" y1="6" x2="8" y2="6" />
+                        <line x1="18" y1="16" x2="18.01" y2="16" />
+                        <line x1="18" y1="20" x2="18.01" y2="20" />
+                        <line x1="4" y1="18" x2="8" y2="18" />
+                    </svg>
+                    <p>Cálculos</p>
+                </button>            
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="mr-05 icon icon-tabler icon-tabler-chart-bar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <rect x="3" y="12" width="6" height="8" rx="1" />
+                        <rect x="9" y="8" width="6" height="12" rx="1" />
+                        <rect x="15" y="4" width="6" height="16" rx="1" />
+                        <line x1="4" y1="20" x2="18" y2="20" />
+                    </svg>
+                    <p>Rentabilidad</p>
+                </button>
+            </div>
+        </div>        
+        <!-- Contenedor principal -->
+        <main class="contenedor-principal">
+            
+            <!-- Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-content">
+                    <h2>Nuevo portfolio</h2>
+                    <form id="newPortfolioForm" class="">
+                        <label for="portfolioName">Nombre del portfolio:</label>
+                        <input type="text" id="portfolioName" name="name_portfolioName" required>
+                        <label for="broker">Bróker:</label>
+                        <input type="text" id="broker" name="broker" required>
+                        <label for="ticker">Activo:</label>
+                        <input type="text" id="ticker" name="ticker" required>
+                        <label for="quantity">Cantidad:</label>
+                        <input type="number" id="quantity" name="name_quantity" step="0.0001" min="0" required>
+                        <label for="price">Precio:</label>
+                        <input type="number" id="price" name="name_price" step="0.0001" min="0" required>
+                        <div class="modalButtons">
+                            <input type="submit" id="accept-modal" value="Aceptar">
+                            <input type="button" id="closeModal" value="Cerrar">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Fin modal -->            
+            <!-- portfolio -->
+
+            <!-- Fin portfolio -->            
+            <div id="btn__newport__container" class="btn__newport__container">
+                <div class="btn__newport__Bienvenida">
+                    <p>Bienvenid@ a Sicoiner, tu portfolio financiero digital</p>
+                </div>
+                <button class="btn__newport__button">Crear portfolio</button>
+            </div>
+        </main>
+
+        <footer style="text-align: center;">
+            <p class="t-azul2">Sicoiner <span class="t-naranja">v1.2</span><br><span style="font-size: 12px; color: rgba(255, 255, 255, 0.438);">
+                By <a href="https://github.com/XekeL121" target="_blank" rel="noopener noreferrer">XekeL121</a> & 
+                <a href="https://github.com/txeto90" target="_blank" rel="noopener noreferrer">Txeto90</a></span></p>
+                
+        </footer>
+        
+        <script type="module" src="js/home.js"></script>
+        <script type="module" src="js/home_calc.js"></script>
+        <script type="module" src="js/homeUser.js"></script>
+        <script src="js/dataStorage.js"></script>  
+
+    </body>
+</html>
