@@ -769,6 +769,18 @@ a {
 }
 
 
+#post-portfolio-content {
+    color: white;
+    margin-top: 3rem;
+}
+
+.percent-symbol {
+    font-size: 0.8em; /* Cambia el tamaño del símbolo de porcentaje */
+    
+  }
+  
+
+
 /* Footer */
 footer {
     display: flex;
@@ -788,150 +800,3 @@ footer p{
 }
 
 
-/* CSS Historial */
-
-.historial__titulo {
-    color: var(--textoPort);
-    margin: 3rem 0 1rem 0;
-    letter-spacing: 0.3rem;
-}
-
-.historial__titulo__linea {
-    margin: 0 auto;    
-    border-radius: 1rem;
-    border: 0.1rem solid var(--textoPort);
-    width: 30%;
-}
-
-.historial__formulario {
-    width: 100%;
-}
-
-.historial__formulario__opciones {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-    border: none;
-    margin: 0 auto;
-    color: white;
-    padding: 0.5rem;
-    
-}
-
-.historial__formulario__opcion__periodo,
-.historial__formulario__opcion__portofolio,
-.historial__formulario__opcion__ticker,
-.historial__formulario__opcion__ordenes {
-    min-width: 45%;    
-    display: grid;
-    margin: 0.5rem;
-}
-
-.historial__formulario__opcion__periodo label,
-.historial__formulario__opcion__portofolio label,
-.historial__formulario__opcion__ticker label,
-.historial__formulario__opcion__ordenes label {
-    color: var(--textoPort);
-    margin: 2rem 0 0.5rem 0;
-    font-size: 2rem;
-    letter-spacing: 0.1rem;
-}
-
-.historial__formulario__opcion__periodo select,
-.historial__formulario__opcion__portofolio select,
-.historial__formulario__opcion__ticker select,
-.historial__formulario__opcion__ordenes select {
-    background-color: var(--azulBorder);
-    padding: 0.8rem;
-    border-radius: 0.5rem;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-}
-
-.historial__formulario__opcion__periodo > select > option,
-.historial__formulario__opcion__portofolio > select > option,
-.historial__formulario__opcion__ticker > select > option,
-.historial__formulario__opcion__ordenes > select > option {
-    padding: 1rem !important ;
-    margin: 1rem !important ;
-}
-
-@media(min-width:1000px) {
-
-    .historial__formulario__opciones {
-        display: flex; 
-        flex-wrap: nowrap;         
-        align-items: center;
-        max-width: 20rem;
-        margin: 0 auto;
-        justify-content: center;
-        color: white;
-        border: none;
-    }
-    
-    .historial__formulario__opcion__periodo,
-    .historial__formulario__opcion__portofolio,
-    .historial__formulario__opcion__ticker,
-    .historial__formulario__opcion__ordenes {
-        display: grid;    
-        margin: 1rem 2rem;       
-    }
-}
-
-.historial {
-    display: flex;
-    justify-content: center;
-}
-
-.historial_table {
-    display: flex column;
-    min-width: 70%;
-    text-align: center;    
-    border-spacing: 0 0.1rem;
-    text-align: center;
-}
-
-@media(max-width:1000px) {
-    .historial_table{
-        font-size: 1rem;
-        padding: 0.2rem;
-        min-width: 90%;
-    }
-}
-
-.historial__th th{
-    color: var(--azulLogo2);  
-    padding: 0.5rem 0;  
-}
-
-.historial__fila {
-    color: white;    
-}
-
-.historial__fila td {
-    padding: 0.3rem 0;
-    border-top: 0.1rem solid var(--azulBorder);
-    border-bottom: 0.1rem solid var(--azulBorder);
-}
-
-.historial__totales th{
-    background-color: var(--azulTH);
-    color: white;
-    padding: 1rem 0;
-}
-
-/* Hacer con JS que cambie el color*/
-.historial__venta {
-    background-color: var(--bg-venta);
-}
-
-.historial__compra {    
-    background-color: var(--bg-compra);    
-}
-
-
-.bg-down {color: #3bbdee;}
-.bg-up {color: rgb(54 241 54);}
-.bg-white {color: white;}
