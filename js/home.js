@@ -102,12 +102,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
     </table>  
     
                
-      <div id="btn__newport__user" class="btn__newport__user">
-      <button id="btn__newport__button__user" class="btn__newport__button__user">+ Nuevo portfolio</button>
-          <div class="btn__newport__Bienvenida_user">
-              <p>¡Enhorabuena, has creado tu primer Portofolio!</p>
-          </div>
-      </div>
+      
 
 
     <div class="modalFila" id="${modalFilaId}">
