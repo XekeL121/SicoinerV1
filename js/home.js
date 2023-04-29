@@ -16,7 +16,6 @@ $(document).ready(function () {
     }
   });
 
-
   $("#accept-modal").on("click", function (e) {
     e.preventDefault();
     // Obtener los valores ingresados por el usuario
@@ -50,22 +49,14 @@ $(document).ready(function () {
     $("#myModal").fadeOut(500);
   });  
 
-
-  
-
-      
-
-
 });
 
-
 function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
-
   // Verificar si ya existe un portfolio con el mismo nombre
   const existingPortfolio = $(`.portfolio__titulo h1:contains("${portfolioName}")`);
   if (existingPortfolio.length > 0) {
-      alert('Ya existe un portfolio con este nombre. Por favor, elija otro nombre.');
-      return;
+    alert('Ya existe un portfolio con este nombre. Por favor, elija otro nombre.');
+    return;
   }
 
   // Crear el ID único del portfolio
@@ -124,8 +115,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
         <th id="add-row" class="cursor border-radius-right-bottom"><img id="add-icon" class="op-50" src="img/add_box_white_24dp.svg" alt=""></th>
       </tr>             
     </tbody>
-  </table>   
-
+  </table>
   <div class="modalFila" id="${modalFilaId}">
     <div class="modal-content">
         <h2>Añadir activo</h2>
@@ -144,8 +134,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
             </div>
           </form>
       </div>
-  </div>          
-
+  </div>
   <div class="modalChanges" id="${modalChangesId}">
     <div class="modal-changes-content">
       <h2 class="mt-3">${ticker.toUpperCase()}</h2>
@@ -178,7 +167,6 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
   // Agregar el nuevo portfolio al DOM
   $("section").append(newPortfolioHtml);
 
-
   // Agregar evento "change" al campo de entrada "valorActual"
   $(`#${filaId} #cotiTH`).on("change", function () {
     updateDiferencia(filaId);
@@ -186,12 +174,6 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
 
   // Actualizar el valor de "diferencia" inicial
   updateDiferencia(filaId);
-
-
-
-
-
-
 
 }
 
@@ -217,10 +199,6 @@ function updateDiferencia(filaId) {
   }
 
 }
-  
-
-
-
 
 // Función para deshacer y rehacer cambios en inputs con Ctrl + Z
 const inputHistory = new Map();
@@ -280,17 +258,3 @@ document.addEventListener('input', (e) => {
     future.length = 0;
   }     
 });  
-
-
-  
-  
-
-
-
-
-
-
-
-  
-    
-        
