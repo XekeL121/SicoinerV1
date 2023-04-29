@@ -179,14 +179,23 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
 
 // Función para calcular el portfolio__th
 function updateDiferencia(filaId) {
-  const valorActual = parseFloat($(`#${filaId} #cotiTH`).val());
+  let valorActual = parseFloat($(`#${filaId} #cotiTH`).val());
+  if (isNaN(valorActual)) {
+    valorActual = parseFloat($(`#${filaId} #precioMedio`).text());
+  }
   const cantidad = parseFloat($(`#${filaId} #cantidad`).text());
   const inversion = parseFloat($(`#${filaId} #inversion`).text());
   
-  const diferencia = valorActual * cantidad - inversion;
+  let diferencia = 0;
+  let diferenciaPercent = 0;
+
+  if (!isNaN(valorActual)) {
+    diferencia = valorActual * cantidad - inversion;
+    diferenciaPercent = (diferencia / inversion) * 100;
+  }
+  
   $(`#${filaId} #diferencia`).text(diferencia.toFixed(2));
 
-  const diferenciaPercent = (diferencia / inversion) * 100;
   $(`#${filaId} #diferenciaPercent`).html(diferenciaPercent.toFixed(2) + ' <span class="percent-symbol">%</span>');
 
   // Cambiar el color del texto según el valor de diferenciaPercent
@@ -197,8 +206,8 @@ function updateDiferencia(filaId) {
   } else {
     $(`#${filaId} #diferenciaPercent`).css("color", "white");
   }
-
 }
+
 
 // Función para deshacer y rehacer cambios en inputs con Ctrl + Z
 const inputHistory = new Map();
