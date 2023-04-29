@@ -167,7 +167,64 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
 
 
 
+  // Función para deshacer y rehacer cambios en inputs con Ctrl + Z
+  const inputHistory = new Map();
+  const inputFuture = new Map();
 
+  document.addEventListener('keydown', (e) => {
+    const isRedo = (e.ctrlKey || e.metaKey) && (e.key === 'y' || (e.shiftKey && e.key === 'Z'));
+    const isUndo = (e.ctrlKey || e.metaKey) && !e.shiftKey && e.key === 'z';
+
+    if (e.target.tagName === 'INPUT' && (isRedo || isUndo)) {
+      e.preventDefault(); // Evita la acción predeterminada del navegador
+
+      const inputElement = e.target;
+
+      if (!inputHistory.has(inputElement)) {
+        inputHistory.set(inputElement, []);
+      }
+      if (!inputFuture.has(inputElement)) {
+        inputFuture.set(inputElement, []);
+      }
+
+      const history = inputHistory.get(inputElement);
+      const future = inputFuture.get(inputElement);
+
+      if (isUndo && history.length > 0) {
+        // Deshacer al valor anterior
+        const previousValue = history.pop();
+        future.push(inputElement.value);
+        inputElement.value = previousValue;
+      } else if (isRedo && future.length > 0) {
+        // Rehacer al siguiente valor
+        const nextValue = future.pop();
+        history.push(inputElement.value);
+        inputElement.value = nextValue;
+      }
+    }
+  });
+
+  document.addEventListener('input', (e) => {
+    if (e.target.tagName === 'INPUT') {
+      const inputElement = e.target;
+
+      if (!inputHistory.has(inputElement)) {
+        inputHistory.set(inputElement, []);
+      }
+      if (!inputFuture.has(inputElement)) {
+        inputFuture.set(inputElement, []);
+      }
+
+      const history = inputHistory.get(inputElement);
+      const future = inputFuture.get(inputElement);
+
+      // Guardar el valor actual en el historial antes de cambiar
+      history.push(inputElement.value);
+
+      // Limpiar el futuro cuando se realiza una nueva entrada
+      future.length = 0;
+    }     
+  });  
 
 
 
