@@ -175,7 +175,33 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
   // Actualizar el valor de "diferencia" inicial
   updateDiferencia(filaId);
 
+  // Agregar evento "click" al botón "btnMenuFilaPort"
+  $(`#${filaId} #btnMenuFilaPort`).on("click", function () {
+    openModalChanges(modalChangesId);
+  });
+
+  // Agregar evento "click" al botón de cierre del modal
+  $(`#${modalChangesId} #closeModalChanges`).on("click", function () {
+    $(`#${modalChangesId}`).fadeOut(200);
+  });
+
+
+
 }
+
+function openModalChanges(modalChangesId) {
+  const $modal = $(`#${modalChangesId}`);
+  $modal.fadeIn(200);
+
+  // Cerrar el modal al hacer clic fuera de su contenido
+  $modal.on("click", function (event) {
+    if ($(event.target).is($modal)) {
+      $modal.fadeOut(200);
+    }
+  });
+}
+
+
 
 // Función para calcular el portfolio__th
 function updateDiferencia(filaId) {
