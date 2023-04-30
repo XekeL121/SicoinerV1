@@ -780,11 +780,18 @@ a {
   }
 
   .icono_compraventa {
-    width: 1.8rem;
+    width: 1.5rem;
     opacity: 100%;
   }
-  
 
+  #cantidad_virtual,
+  #virtualMedia,
+  #virtualInversion {
+    background-color: grey;
+    color: white;
+  }
+
+  
 
 /* Footer */
 footer {

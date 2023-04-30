@@ -99,7 +99,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
         <td id="valorActual" class="py-05"><input id="cotiTH" class="valorActual-placeholder" type="number" step="0.01" defaultValue="${price}" placeholder="Manual"></td>
         <td id="diferencia" class=""></td>
         <td id="diferenciaPercent" class=""></td>
-        <td id="btnMenuFilaPort" class="cursor"><img class="icono_compraventa" src="img/icono_compraventa-01.svg" alt="Compra/Venta"></td>
+        <td id="btnMenuFilaPort" class="cursor"><img class="icono_compraventa" src="img/icono_compraventa-01.svg" title="Añadir operación Compra/Venta" alt="Añadir operación de compra o venta del activo"></td>
       </tr>
       <tr class="salto1"></tr>
       <!-- /** TOTALES **/ -->
@@ -148,15 +148,15 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
           <label for="cantidad_virtual">Cantidad total ${ticker.toUpperCase()}:</label> 
           <input type="number" id="cantidad_virtual" name="cantidad_virtual" step="0.01" value="${quantity}" readonly>
           <label for="precio_medio_virtual">Media:</label>
-          <input type="number" id="virtualMedia" name="virtualMedia" step="0.01" value="${price}" readonly>
+          <input type="number" id="virtualMedia" name="virtualMedia" step="0.001" value="${price}" readonly>
           <label for="inversion_virtual">Inversión total:</label> 
           <input type="number" id="virtualInversion" name="virtualInversion" step="any" value="${(quantity * price)}" readonly>
         </div>
         <hr class="row_linea op-25"></hr>
         <div class="modalChangesButtons">
-          <input type="submit" id="aplicar-activo" data-row-id="${filaId}" value="Aplicar">
+          <input type="submit" id="aplicar-activo" class="cursor" data-row-id="${filaId}" value="Aplicar">
           <div></div>
-          <input type="button" id="eliminar-activo" class="btn btn-danger" data-row-id="${filaId}" value="Eliminar fila">
+          <input type="button" id="eliminar-activo" class="btn btn-danger cursor" data-row-id="${filaId}" value="Eliminar fila">
         </div>
         <input type="button" class="btn btn-dark text-center" id="closeModalChanges" value="Cancelar">
       </form>
@@ -192,7 +192,52 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
 
   $(`#${modalChangesId} #cantidad_virtual`).data('original', quantity);
   $(`#${modalChangesId} #virtualInversion`).data('original', (quantity * price));
+  
+  
+  // Recuperar fila eliminada con Ctrl+Z
+  function deleteRow(rowId) {
+    const $row = $(`#${rowId}`);
+    deletedRows.push({
+      row: $row.clone(true, true),
+      index: $row.index(),
+      parent: $row.parent(),
+    });
+    $row.remove();
+  }  
 
+  function undoDeleteRow() {
+    if (deletedRows.length > 0) {
+      const deletedRowData = deletedRows.pop();
+      const $parent = deletedRowData.parent;
+      const index = deletedRowData.index;
+      const $row = deletedRowData.row;
+      if (index === 0) {
+        $parent.prepend($row);
+      } else {
+        $parent.children().eq(index - 1).after($row);
+      }
+    }
+  }
+
+  $(document).keydown(function (e) {
+    const isUndo = (e.ctrlKey || e.metaKey) && !e.shiftKey && e.key === 'z';
+  
+    if (isUndo) {
+      e.preventDefault();
+      undoDeleteRow();
+    }
+  });
+
+  $(`#${modalChangesId} #eliminar-activo`).on("click", function () {
+    const rowId = $(this).data("row-id");
+    const confirmDelete = confirm("¿Está seguro de querer eliminar el activo del portfolio?");
+    if (confirmDelete) {
+      deleteRow(rowId);
+      $(`#${modalChangesId}`).fadeOut(200);
+    }
+  }); 
+
+  const deletedRows = [];
   
 
 
@@ -209,8 +254,6 @@ function openModalChanges(modalChangesId) {
     }
   });
 }
-
-
 
 // Función para calcular el portfolio__th
 function updateDiferencia(filaId) {
@@ -320,6 +363,11 @@ function calculateVirtualResults(modalChangesId) {
   $(`#${modalChangesId} #virtualInversion`).val(nuevaInversionVirtual.toFixed(2));
 
   const nuevaMedia = (nuevaCantidadVirtual === 0) ? 0 : nuevaInversionVirtual / nuevaCantidadVirtual;
-  $(`#${modalChangesId} #virtualMedia`).val(nuevaMedia.toFixed(2));
+  $(`#${modalChangesId} #virtualMedia`).val(nuevaMedia.toFixed(4));
 }
+
+
+
+
+
 
