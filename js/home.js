@@ -77,7 +77,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
   const newPortfolioHtml = `
   <div class="portfolio__titulo">
     <h1 class="nowrap">${portfolioName}</h1>
-    <hr class="portfolio__nombre__linea op-25"></hr>
+    <hr class="portfolio__nombre__linea"></hr>
   </div>
   <table id="${portfolioID}" class="portfolio-table">
     <thead class="">
@@ -141,14 +141,25 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
   </div>
   <div class="modalChanges" id="${modalChangesId}">
     <div class="modal-changes-content">
+      <img src="img/helpChanges.svg" class="question-icon" title="Modo de uso:
+      Añade la cantidad de ${ticker.toUpperCase()} comprada y el precio de compra.
+      Si has vendido ${ticker.toUpperCase()} la cantidad debería ser negativa.
+      Por ejemplo: Cantidad -100 y el precio de venta normal.
+      En caso de venta el precio medio no se verá afectado.
+
+      El formulario calculará automáticamente la operación,
+      además de tener en cuenta la cantidad de ${ticker.toUpperCase()} que ya tienes.
+
+      Una vez apliques los cambios, los resultados se reflejarán
+      en tu activo ${ticker.toUpperCase()} dentro del Portfolio ${portfolioName}."> <!-- Agrega el icono y el mensaje personalizado -->      
       <h2 class="mt-3 nowrap"><span class="op-50">${portfolioName} /</span> ${ticker.toUpperCase()}</h2>
       <form id="changesForm" class="">
-        <label for="he_comprado">Cálculo de operación:</label>
-        <input class="ml-2" type="number" id="he_comprado_cantidad" name="he_comprado_cantidad" step="0.00001" placeholder="Cantidad..." required>
+        <label for="he_comprado">Añadir operación:</label>
+        <input class="ml-2" type="number" id="he_comprado_cantidad" name="he_comprado_cantidad" step="0.00001" placeholder="Cantidad de ${ticker.toUpperCase()}..." required>
         <input class="ml-2" type="number" id="he_comprado_precio" name="he_comprado_precio" step="0.00001" placeholder="A precio..." required> 
         <input class="ml-2 no-select" type="number" id="he_invertido" name="he_invertido" step="0.00001" placeholder="Inversión..." required readonly>                   
         <div class="resultadoModalChanges">
-          <h2 class="" for="resultado_virtual">Resultado virtual:</h2> 
+          <h2 class="" for="resultado_virtual">Cálculos tras la operación</h2> 
           <label for="cantidad_virtual">Cantidad total ${ticker.toUpperCase()}:</label> 
           <input type="number" id="cantidad_virtual" name="cantidad_virtual" step="0.01" value="${quantity}" readonly>
           <label for="precio_medio_virtual">Media:</label>
