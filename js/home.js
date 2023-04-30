@@ -99,7 +99,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
         <td id="valorActual" class="py-05"><input id="cotiTH" class="valorActual-placeholder" type="number" step="0.01" defaultValue="${price}" placeholder="Manual"></td>
         <td id="diferencia" class=""></td>
         <td id="diferenciaPercent" class=""></td>
-        <td id="btnMenuFilaPort" class="cursor"><img class="size-min op-50" src="img/linear_scale_white_24dp.svg" alt=""></td>
+        <td id="btnMenuFilaPort" class="cursor"><img class="icono_compraventa" src="img/icono_compraventa-01.svg" alt=""></td>
       </tr>
       <tr class="salto1"></tr>
       <!-- /** TOTALES **/ -->
@@ -185,6 +185,15 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
     $(`#${modalChangesId}`).fadeOut(200);
   });
 
+  // Cálculos de resultados virtuales
+  $(`#${modalChangesId} #he_comprado_cantidad, #${modalChangesId} #he_comprado_precio`).on("input", function () {
+    calculateVirtualResults(modalChangesId);
+  });
+
+  $(`#${modalChangesId} #cantidad_virtual`).data('original', quantity);
+  $(`#${modalChangesId} #virtualInversion`).data('original', (quantity * price));
+
+  
 
 
 }
@@ -293,3 +302,24 @@ document.addEventListener('input', (e) => {
     future.length = 0;
   }     
 });  
+
+// Función para calcular los resultados virtuales
+function calculateVirtualResults(modalChangesId) {
+  const cantidadComprada = parseFloat($(`#${modalChangesId} #he_comprado_cantidad`).val()) || 0;
+  const precioComprado = parseFloat($(`#${modalChangesId} #he_comprado_precio`).val()) || 0;
+  const cantidadVirtualOriginal = parseFloat($(`#${modalChangesId} #cantidad_virtual`).data('original')) || 0;
+  const inversionVirtualOriginal = parseFloat($(`#${modalChangesId} #virtualInversion`).data('original')) || 0;
+
+  const invertido = cantidadComprada * precioComprado;
+  $(`#${modalChangesId} #he_invertido`).val(invertido.toFixed(2));
+
+  const nuevaCantidadVirtual = cantidadComprada + cantidadVirtualOriginal;
+  $(`#${modalChangesId} #cantidad_virtual`).val(nuevaCantidadVirtual.toFixed(2));
+
+  const nuevaInversionVirtual = invertido + inversionVirtualOriginal;
+  $(`#${modalChangesId} #virtualInversion`).val(nuevaInversionVirtual.toFixed(2));
+
+  const nuevaMedia = (nuevaCantidadVirtual === 0) ? 0 : nuevaInversionVirtual / nuevaCantidadVirtual;
+  $(`#${modalChangesId} #virtualMedia`).val(nuevaMedia.toFixed(2));
+}
+

@@ -778,6 +778,11 @@ a {
     font-size: 0.8em; /* Cambia el tamaño del símbolo de porcentaje */
     
   }
+
+  .icono_compraventa {
+    width: 1.8rem;
+    opacity: 70%;
+  }
   
 
 
