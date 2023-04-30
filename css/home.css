@@ -787,7 +787,7 @@ a {
   #cantidad_virtual,
   #virtualMedia,
   #virtualInversion {
-    background-color: grey;
+    background-color: var(--azulFondo);
     color: white;
   }
 

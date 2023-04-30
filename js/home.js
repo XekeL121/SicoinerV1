@@ -16,11 +16,15 @@ $(document).ready(function () {
     }
   });
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   $("#accept-modal").on("click", function (e) {
     e.preventDefault();
     // Obtener los valores ingresados por el usuario
-    const portfolioName = $("#portfolioName").val();
-    const broker = $("#broker").val();
+    const portfolioName = capitalizeFirstLetter($("#portfolioName").val());
+    const broker = capitalizeFirstLetter ($("#broker").val());
     const ticker = $("#ticker").val();
     const quantity = parseFloat($("#quantity").val());
     const price = parseFloat($("#price").val());
@@ -137,7 +141,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
   </div>
   <div class="modalChanges" id="${modalChangesId}">
     <div class="modal-changes-content">
-      <h2 class="mt-3">${ticker.toUpperCase()}</h2>
+      <h2 class="mt-3 nowrap"><span class="op-50">${portfolioName} /</span> ${ticker.toUpperCase()}</h2>
       <form id="changesForm" class="">
         <label for="he_comprado">Cálculo de operación:</label>
         <input class="ml-2" type="number" id="he_comprado_cantidad" name="he_comprado_cantidad" step="0.00001" placeholder="Cantidad..." required>
@@ -149,16 +153,16 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
           <input type="number" id="cantidad_virtual" name="cantidad_virtual" step="0.01" value="${quantity}" readonly>
           <label for="precio_medio_virtual">Media:</label>
           <input type="number" id="virtualMedia" name="virtualMedia" step="0.001" value="${price}" readonly>
-          <label for="inversion_virtual">Inversión total:</label> 
+          <label for="inversion_virtual">Inversión global:</label> 
           <input type="number" id="virtualInversion" name="virtualInversion" step="any" value="${(quantity * price)}" readonly>
         </div>
         <hr class="row_linea op-25"></hr>
         <div class="modalChangesButtons">
-          <input type="submit" id="aplicar-activo" class="cursor" data-row-id="${filaId}" value="Aplicar">
+          <input type="submit" id="aplicar-activo" class="cursor" data-row-id="${filaId}" value="Aplicar a ${ticker.toUpperCase()}">
           <div></div>
-          <input type="button" id="eliminar-activo" class="btn btn-danger cursor" data-row-id="${filaId}" value="Eliminar fila">
+          <input type="button" id="eliminar-activo" class="btn btn-danger cursor" data-row-id="${filaId}" value="Eliminar ${ticker.toUpperCase()}">
         </div>
-        <input type="button" class="btn btn-dark text-center" id="closeModalChanges" value="Cancelar">
+        <input type="button" class="btn btn-dark text-center" id="closeModalChanges" value="Cerrar">
       </form>
     </div>
   </div>
