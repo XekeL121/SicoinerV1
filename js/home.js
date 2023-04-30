@@ -99,7 +99,7 @@ function createNewPortfolio(portfolioName, broker, ticker, quantity, price) {
         <td id="valorActual" class="py-05"><input id="cotiTH" class="valorActual-placeholder" type="number" step="0.01" defaultValue="${price}" placeholder="Manual"></td>
         <td id="diferencia" class=""></td>
         <td id="diferenciaPercent" class=""></td>
-        <td id="btnMenuFilaPort" class="cursor"><img class="icono_compraventa" src="img/icono_compraventa-01.svg" alt=""></td>
+        <td id="btnMenuFilaPort" class="cursor"><img class="icono_compraventa" src="img/icono_compraventa-01.svg" alt="Compra/Venta"></td>
       </tr>
       <tr class="salto1"></tr>
       <!-- /** TOTALES **/ -->
